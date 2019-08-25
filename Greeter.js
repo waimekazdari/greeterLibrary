@@ -69,7 +69,28 @@
       this.language = lang;
       this.validate();
       return this;
-    }
+    },
+
+    HTMLGreetings: function(selector, formal){
+      //make sure that we have jquery
+      if(!$){
+        throw 'jQuery not loaded';
+      }
+      if(!selector){
+        throw 'Missing jQuery selector';
+      }
+
+      var msg;
+      if(formal){
+        msg = this.formalGreeting();
+      }else{
+        msg = this.greeting();
+      }
+      $(selector).html(msg);
+
+      //make this chainable
+      return this;
+    },
 
   };
 
