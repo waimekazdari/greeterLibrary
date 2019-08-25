@@ -6,4 +6,6 @@
 
 -> Support jQuery
 
+-> Reusable library/framework
+
 Some examples can be found in app.js

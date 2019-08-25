@@ -1,25 +1,28 @@
-(function(global, $) {
+;(function(global, $) {
 
   var Greeter = function(firstname, lastname, language) {
     return new Greeter.init(firstname, lastname, language);
   }
 
   //{ these variables
-  var supportedLangs = ['es', 'en'];
+  var supportedLangs = ['es', 'en', 'fr'];
 
   var greetings = {
     en : 'Hello',
     es : 'Holla',
+    fr : 'Salut'
   };
 
   var formalGreetings = {
     en : 'Greetings',
     es : 'Saludos',
+    fr : 'Bonjour',
   };
 
   var logMessages = {
     en : 'Logged in' ,
     es : 'Inicio sesion',
+    fr : 'Session réussie',
   };
 
   //} are not something exposed to the outside world
@@ -87,7 +90,7 @@
         msg = this.greeting();
       }
       $(selector).html(msg);
-
+      console.log("herre");
       //make this chainable
       return this;
     },
