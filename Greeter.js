@@ -24,7 +24,54 @@
 
   //} are not something exposed to the outside world
 
-  Greeter.prototype = {};
+  Greeter.prototype = {
+    fullName: function(){
+      return this.firstname+' '+this.lastname;
+    },
+
+    validate: function(){
+      if (supportedLangs.indexOf(this.language) === -1){
+        throw 'Invalid language';
+      }
+    },
+
+    greeting: function(){
+      return greetings[this.language] + ' ' + this.firstname+' ! ';
+    },
+
+    formalGreeting: function(){
+      return formalGreetings[this.language]+ ' '+this.fullName();
+    },
+
+    greet: function(formal){
+      var msg;
+      if(formal){
+        msg =  this.formalGreeting();
+      }else{
+        msg =  this.greeting();
+      }
+      if(console){
+        console.log(msg);
+      }
+      //'this' refers to the calling object at execution time makes the method chainable
+      return this;
+    },
+
+    log: function(){
+      if (console){
+        console.log(logMessages[this.language]+' '+this.fullName());
+      }
+
+      return this;
+    },
+
+    setLang: function(lang){
+      this.language = lang;
+      this.validate();
+      return this;
+    }
+
+  };
 
   Greeter.init = function(firstname, lastname, language){
     //any object built here will have access to any method and property built in Greeter.prototype
