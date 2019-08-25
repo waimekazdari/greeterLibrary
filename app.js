@@ -24,7 +24,7 @@ $("#login").click(function(){
   //create Greeter object with our library
   var loginGr = G$('wiame', 'kazdari');
 
-  // after the button login had clicked, we'll hide the logindiv
+  // hide the login on the screen
   $('.logindiv').hide();
 
   //fire off an HTML greeting, passing the '#greeting' as the selector and the chosed language, and log the welcome as well
